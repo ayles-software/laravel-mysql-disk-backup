@@ -15,7 +15,7 @@ $finder = \PhpCsFixer\Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config)
     ->setRiskyAllowed(true)
     ->setUsingCache(true)
     ->setRules([
@@ -43,7 +43,7 @@ return PhpCsFixer\Config::create()
         'indentation_type' => true,
         'linebreak_after_opening_tag' => true,
         'lowercase_cast' => true,
-        'lowercase_constants' => true,
+        'constant_case' => ['case' => 'lower'],
         'lowercase_keywords' => true,
         'magic_constant_casing' => true,
         'method_argument_space' => true,
@@ -86,9 +86,9 @@ return PhpCsFixer\Config::create()
         'normalize_index_brace' => true,
         'not_operator_with_successor_space' => true,
         'object_operator_without_whitespace' => true,
-        'ordered_imports' => ['sortAlgorithm' => 'length'],
+        'ordered_imports' => ['sort_algorithm' => 'length'],
         'phpdoc_indent' => true,
-        'phpdoc_inline_tag' => true,
+        'phpdoc_inline_tag_normalizer' => true,
         'phpdoc_no_access' => true,
         'phpdoc_no_package' => true,
         'phpdoc_no_useless_inheritdoc' => true,
@@ -101,7 +101,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_var_without_name' => true,
         'increment_style' => ['style' => 'post'],
         'no_mixed_echo_print' => true,
-        'psr4' => true,
+        'psr_autoloading' => true,
         'array_syntax' => ['syntax' => 'short'],
         'short_scalar_cast' => true,
         'simplified_null_return' => true,
@@ -116,7 +116,7 @@ return PhpCsFixer\Config::create()
         'switch_case_semicolon_to_colon' => true,
         'switch_case_space' => true,
         'ternary_operator_spaces' => true,
-        'trailing_comma_in_multiline_array' => true,
+        'trailing_comma_in_multiline' => true,
         'trim_array_spaces' => true,
         'unary_operator_spaces' => true,
         'line_ending' => true,

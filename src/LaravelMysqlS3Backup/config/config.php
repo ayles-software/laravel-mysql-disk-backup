@@ -3,19 +3,10 @@
 use Illuminate\Support\Str;
 
 return [
-    /*
-     * Configure with your Amazon S3 credentials
-     * You should use an IAM user who only has PutObject access
-     * to a specified bucket
-     */
-    's3' => [
-        'key'    => env('AWS_API_KEY'),
-        'secret' => env('AWS_API_SECRET'),
-        'bucket' => env('AWS_S3_BUCKET'),
-        'region' => env('AWS_S3_REGION'),
-        'endpoint' => env('AWS_ENDPOINT'),
-        'folder' => env('BACKUP_FOLDER'),
-        'use_path_style_endpoint' => env('USE_PATH_STYLE_ENDPOINT', false),
+    'disks' => [
+        's3' => [
+            'folder' => env('S3_BACKUP_FOLDER'),
+        ],
     ],
 
     /*
@@ -36,18 +27,12 @@ return [
     /*
      * Backup filename
      */
-    'filename' => Str::slug(env('APP_NAME')).'backup-%s.sql',
+    'filename_prefix' => Str::slug(env('APP_NAME')).'backup',
 
     /*
      * Where to store the backup file locally
      */
     'backup_dir' => '/tmp',
-
-    /*
-     * Do you want to keep a copy of it or delete it
-     * after it's been uploaded?
-     */
-    'keep_local_copy' => false,
 
     /*
      * Do you want to keep a rolling number of

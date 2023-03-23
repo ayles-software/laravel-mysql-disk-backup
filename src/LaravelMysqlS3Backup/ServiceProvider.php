@@ -26,7 +26,7 @@ class ServiceProvider extends BaseServiceProvider
     public function register()
     {
         $this->commands([
-            MysqlS3Backup::class,
+            MysqlDiskBackup::class,
         ]);
     }
 }
