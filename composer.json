@@ -1,5 +1,5 @@
 {
-    "name": "ayles-software/laravel-mysql-s3-backup",
+    "name": "ayles-software/laravel-mysql-disk-backup",
     "description": "Backup the MySQL database of your Laravel app to Amazon S3",
     "authors": [
         {
@@ -8,23 +8,22 @@
         }
     ],
     "require": {
-        "php": "^7.1|^8.0",
-        "illuminate/support": "^5.5||^6.0||^7.0||^8.0||^9.0||^10.0",
-        "aws/aws-sdk-php": "^3.63"
+        "php": "^8.1",
+        "illuminate/support": "^10.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "friendsofphp/php-cs-fixer": "^3.0"
     },
     "autoload": {
         "psr-0": {
-            "LaravelMysqlS3Backup\\": "src/"
+            "LaravelMysqlDiskBackup\\": "src/"
         }
     },
     "minimum-stability": "stable",
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelMysqlS3Backup\\ServiceProvider"
+                "LaravelMysqlDiskBackup\\ServiceProvider"
             ]
         }
     },
