@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelMysqlS3Backup\Actions;
+namespace LaravelMysqlDiskBackup\Actions;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class DiskBackupTrimmer
 {
     public $disk;
+
     public $when;
 
     private function __construct($disk, public ?string $folder = null)
@@ -28,7 +29,7 @@ class DiskBackupTrimmer
                 $parts = explode('-', $filename);
                 $date = $parts[count($parts) - 3];
 
-                return (Carbon::createFromFormat('Ymd', $date))->lt($this->when);
+                return Carbon::createFromFormat('Ymd', $date)->lt($this->when);
             })
             ->tap(function ($filenames) {
                 $this->disk->delete($filenames);

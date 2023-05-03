@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelMysqlS3Backup\Actions;
+namespace LaravelMysqlDiskBackup\Actions;
 
 use Illuminate\Support\Facades\Storage;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelMysqlS3Backup\Actions;
+namespace LaravelMysqlDiskBackup\Actions;
 
 use RuntimeException;
 use Illuminate\Support\Str;
@@ -14,7 +14,8 @@ class MySqlDatabaseDumper
 
     public function dump()
     {
-        $cmd = sprintf('mysqldump --host=%s --port=%s --user=%s --password=%s --single-transaction --routines --triggers',
+        $cmd = sprintf(
+            'mysqldump --host=%s --port=%s --user=%s --password=%s --single-transaction --routines --triggers',
             escapeshellarg(config('database.connections.mysql.host')),
             escapeshellarg(config('database.connections.mysql.port')),
             escapeshellarg(config('database.connections.mysql.username')),
@@ -27,7 +28,8 @@ class MySqlDatabaseDumper
 
         $cmd .= ' '.escapeshellarg(config('database.connections.mysql.database'));
 
-        $this->fileName = sprintf('/tmp/%s-%s-mysql-backup.sql',
+        $this->fileName = sprintf(
+            '/tmp/%s-%s-mysql-backup.sql',
             Str::slug(config('app.name')),
             date('Ymd-His')
         );

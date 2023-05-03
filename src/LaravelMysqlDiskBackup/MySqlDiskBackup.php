@@ -1,15 +1,15 @@
 <?php
 
-namespace LaravelMysqlS3Backup;
+namespace LaravelMysqlDiskBackup;
 
 use Illuminate\Console\Command;
-use LaravelMysqlS3Backup\Actions\DiskUpload;
-use LaravelMysqlS3Backup\Actions\DiskBackupTrimmer;
-use LaravelMysqlS3Backup\Actions\MySqlDatabaseDumper;
+use LaravelMysqlDiskBackup\Actions\DiskUpload;
+use LaravelMysqlDiskBackup\Actions\DiskBackupTrimmer;
+use LaravelMysqlDiskBackup\Actions\MySqlDatabaseDumper;
 
-class MysqlDiskBackup extends Command
+class MySqlDiskBackup extends Command
 {
-    protected $name = 'db:disk-backup';
+    protected $name = 'db:mysql-disk-backup';
 
     protected $description = 'Create a SQL dump of your database and upload it to any Laravel disk';
 

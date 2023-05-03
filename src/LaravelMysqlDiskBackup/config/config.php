@@ -5,6 +5,10 @@ return [
         's3' => [
             'folder' => env('S3_BACKUP_FOLDER'),
         ],
+
+         'r2' => [
+             'folder' => env('S3_BACKUP_FOLDER'),
+         ],
     ],
 
     /*
