@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Str;
-
 return [
     'disks' => [
         's3' => [
@@ -25,18 +23,7 @@ return [
     'sql_timout' => 7200, // 2 hours
 
     /*
-     * Backup filename
-     */
-    'filename_prefix' => Str::slug(env('APP_NAME')).'backup',
-
-    /*
-     * Where to store the backup file locally
-     */
-    'backup_dir' => '/tmp',
-
-    /*
-     * Do you want to keep a rolling number of
-     * backups on S3? How many days worth?
+     * Want to keep X number of days worth of backups?
      */
     'rolling_backup_days' => 14,
 ];
